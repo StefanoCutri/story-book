@@ -18,7 +18,7 @@ export interface MyLabelProps {
    */
   allCaps?: boolean;
   /**
-   * What background color to use
+   * What font color to use
    */
   fontColor?: string;
 }
