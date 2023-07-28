@@ -1,1 +1,35 @@
 
+name: Semantic Release
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps: 
+
+      - uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: action/setup-node@v1
+        with:
+          node-version: 14.1
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build app
+        run: yarn build
+
+      - name: Semantic release
+        emv:
+          GITHUB_TOKEN: ${{secrets.SC_GH_TOKEN}}
+          NPM_TOKEN: ${{secrets.SC_NPM_TOKEN}}
+        run: npx semantic-release
