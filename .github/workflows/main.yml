@@ -1,21 +1,16 @@
-
 name: Semantic Release
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
-
+    branches: [master]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
-    steps: 
-
+    steps:
       - uses: actions/checkout@v2
       - name: Setup Node.js
         uses: action/setup-node@v1
